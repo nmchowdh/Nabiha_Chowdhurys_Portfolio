@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Nabiha Chowdhury — Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Nunito:wght@300;400;600;700&family=Pacifico&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #F4EFFF;
+      --warm-white: #FAF7FF;
+      --brown-deep: #1E1040;
+      --brown-mid: #4A306A;
+      --brown-light: #7B62A0;
+      --coral: #A87CC8;
+      --pink: #D4789B;
+      --purple: #7B5EA7;
+      --teal: #4AB4C0;
+      --gold: #D4A030;
+      --galaxy: #5B4FCF;
+      --fire: #D4789B;
+      --waves: #4AB4C0;
+      --nova: #D4A030;
+      --ember: #A87CC8;
+      --nebula: #7B5EA7;
+      --card-bg: #FAF7FF;
+      --border: rgba(80,40,130,0.13);
+      --shadow: 0 4px 24px rgba(80,40,130,0.08);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--cream);
+      color: var(--brown-deep);
+      font-family: 'Nunito', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(244,239,255,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--brown-deep);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--coral); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--brown-mid);
+      transition: color 0.2s;
+      letter-spacing: 0.03em;
+    }
+    .nav-links a:hover { color: var(--coral); }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-blob {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.18;
+      pointer-events: none;
+    }
+    .blob-1 { width: 500px; height: 500px; background: var(--coral); top: -100px; left: -150px; }
+    .blob-2 { width: 400px; height: 400px; background: var(--pink); bottom: -80px; right: -100px; }
+    .blob-3 { width: 300px; height: 300px; background: var(--gold); top: 30%; left: 60%; }
+    .hero-content { position: relative; z-index: 1; max-width: 800px; }
+    .hero-greeting {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.1rem;
+      color: var(--coral);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .hero-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--brown-deep);
+      margin-bottom: 1.25rem;
+    }
+    .hero-name .highlight { color: var(--coral); }
+    .hero-roles {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--brown-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.75rem;
+      min-height: 1.5em;
+    }
+    .hero-roles span {
+      display: inline-block;
+      padding: 0.25rem 0.9rem;
+      border-radius: 2rem;
+      margin: 0.25rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .tag-coral { background: rgba(232,118,74,0.12); color: #8A5AAE; }
+    .tag-pink { background: rgba(196,92,155,0.12); color: #B55A80; }
+    .tag-purple { background: rgba(123,94,167,0.12); color: #5e4090; }
+    .tag-teal { background: rgba(58,172,176,0.12); color: #2A9298; }
+    .tag-gold { background: rgba(232,168,37,0.12); color: #9E7010; }
+    .hero-tagline {
+      font-size: 1.125rem;
+      color: var(--brown-mid);
+      max-width: 560px;
+      margin: 0 auto 2.5rem;
+    }
+    .hero-cta {
+      display: inline-flex; gap: 1rem; flex-wrap: wrap; justify-content: center;
+    }
+    .btn {
+      padding: 0.75rem 2rem;
+      border-radius: 3rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: 2px solid transparent;
+    }
+    .btn-primary { background: var(--coral); color: #fff; }
+    .btn-primary:hover { background: #9668BC; transform: translateY(-2px); }
+    .btn-outline { background: transparent; color: var(--coral); border-color: var(--coral); }
+    .btn-outline:hover { background: rgba(232,118,74,0.08); transform: translateY(-2px); }
+
+    /* SECTION LAYOUT */
+    section { padding: 5rem 2rem; }
+    .container { max-width: 1080px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Pacifico', cursive;
+      font-size: 0.9rem;
+      color: var(--coral);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.75rem);
+      font-weight: 700;
+      color: var(--brown-deep);
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .section-divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--coral), var(--pink));
+      border-radius: 2px;
+      margin-bottom: 2.5rem;
+    }
+
+    /* ABOUT */
+    #about { background: var(--warm-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.8fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .about-avatar-wrap {
+      position: relative;
+      display: flex; justify-content: center;
+    }
+    .about-avatar-ring {
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--pink), var(--purple));
+      padding: 4px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-avatar-inner {
+      width: 100%; height: 100%;
+      border-radius: 50%;
+      background: #EDE0FF;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 4rem;
+      font-weight: 900;
+      color: var(--coral);
+    }
+    .about-badges {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-top: 1.5rem; justify-content: center;
+    }
+    .badge {
+      padding: 0.3rem 0.8rem;
+      border-radius: 2rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .about-text p { margin-bottom: 1rem; color: var(--brown-mid); }
+    .about-text p:last-child { margin-bottom: 0; }
+
+    /* SKILLS */
+    #skills { background: var(--cream); }
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .skill-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .skill-card-header {
+      display: flex; align-items: center; gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+    .skill-icon {
+      width: 44px; height: 44px;
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem;
+    }
+    .skill-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--brown-deep);
+    }
+    .skill-list { list-style: none; }
+    .skill-list li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+      color: var(--brown-mid);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .skill-list li:last-child { border-bottom: none; }
+    .skill-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    /* PROJECTS */
+    #projects { background: var(--warm-white); }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.25rem;
+      padding: 1.75rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover { transform: translateY(-4px); }
+    .project-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0;
+      height: 4px;
+    }
+    .project-type-badge {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 2rem;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+    }
+    .project-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin-bottom: 0.5rem;
+      line-height: 1.3;
+    }
+    .project-channel {
+      font-size: 0.8rem;
+      color: var(--brown-light);
+      margin-bottom: 0.5rem;
+    }
+    .project-desc {
+      font-size: 0.875rem;
+      color: var(--brown-mid);
+    }
+
+    /* YOUTUBE */
+    #youtube { background: var(--cream); }
+    .channel-tabs {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 2.5rem;
+    }
+    .channel-tab {
+      padding: 0.5rem 1.25rem;
+      border-radius: 2rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 2px solid;
+      cursor: pointer;
+      transition: all 0.2s;
+      background: transparent;
+      font-family: 'Nunito', sans-serif;
+      white-space: nowrap;
+    }
+    .channel-panels .channel-panel { display: none; }
+    .channel-panels .channel-panel.active { display: block; }
+    .channel-detail {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .channel-header { grid-column: 1 / -1; }
+    .channel-orb {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .channel-name-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--brown-deep);
+      margin-bottom: 0.4rem;
+    }
+    .channel-desc { color: var(--brown-mid); font-size: 0.95rem; }
+    .channel-meta-block h4 {
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--brown-light);
+      margin-bottom: 0.75rem;
+    }
+    .fandom-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .fandom-tag {
+      padding: 0.25rem 0.7rem;
+      border-radius: 2rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .series-list { list-style: none; }
+    .series-list li {
+      padding: 0.4rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.875rem;
+      color: var(--brown-mid);
+      display: flex; align-items: center; gap: 0.5rem;
+    }
+    .series-list li:last-child { border-bottom: none; }
+    .channel-footer { grid-column: 1 / -1; display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; }
+    .age-badge {
+      padding: 0.35rem 1rem;
+      border-radius: 2rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .content-types { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .content-tag {
+      padding: 0.25rem 0.7rem;
+      border-radius: 2rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      background: rgba(80,40,130,0.07);
+      color: var(--brown-mid);
+    }
+
+    /* CONTACT */
+    #contact { background: var(--warm-white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .contact-text p { color: var(--brown-mid); margin-bottom: 1rem; }
+    .contact-links { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 1rem;
+      padding: 1rem 1.25rem;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1rem;
+      text-decoration: none;
+      color: var(--brown-deep);
+      font-weight: 600;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      box-shadow: var(--shadow);
+    }
+    .contact-link:hover { transform: translateX(4px); border-color: var(--coral); }
+    .contact-link-icon {
+      width: 40px; height: 40px;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 1.5rem;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+    .contact-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--brown-deep);
+    }
+    .form-group { margin-bottom: 1.25rem; }
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: var(--brown-mid);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border: 1.5px solid var(--border);
+      border-radius: 0.75rem;
+      background: var(--cream);
+      font-family: 'Nunito', sans-serif;
+      font-size: 0.9rem;
+      color: var(--brown-deep);
+      transition: border-color 0.2s;
+      outline: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus { border-color: var(--coral); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-submit {
+      width: 100%;
+      padding: 0.875rem;
+      background: var(--coral);
+      color: #fff;
+      border: none;
+      border-radius: 3rem;
+      font-family: 'Nunito', sans-serif;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .form-submit:hover { background: #9668BC; transform: translateY(-2px); }
+
+    /* FOOTER */
+    footer {
+      background: var(--brown-deep);
+      color: rgba(255,250,245,0.7);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .footer-logo span { color: var(--coral); }
+    .footer-tagline { font-size: 0.875rem; margin-bottom: 1.5rem; }
+    .footer-channels { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; margin-bottom: 2rem; }
+    .footer-channel-link {
+      color: rgba(255,250,245,0.6);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: color 0.2s;
+      padding: 0.25rem 0.75rem;
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 2rem;
+    }
+    .footer-channel-link:hover { color: #fff; border-color: rgba(255,255,255,0.3); }
+    .footer-copy { font-size: 0.8rem; opacity: 0.5; }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { gap: 1rem; }
+      .nav-links a { font-size: 0.75rem; }
+      .about-grid, .skills-grid, .contact-grid { grid-template-columns: 1fr; }
+      .channel-detail { grid-template-columns: 1fr; }
+      .channel-header { grid-column: auto; }
+      .channel-footer { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Nabiha<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#youtube">YouTube</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-blob blob-1"></div>
+  <div class="hero-blob blob-2"></div>
+  <div class="hero-blob blob-3"></div>
+  <div class="hero-content">
+    <span class="hero-greeting">Hello, world! I'm</span>
+    <h1 class="hero-name">Nabiha <span class="highlight">Chowdhury</span></h1>
+    <div class="hero-roles">
+      <span class="tag-coral">✦ GachaTuber</span>
+      <span class="tag-pink">✦ Storywriter</span>
+      <span class="tag-purple">✦ Designer</span>
+      <span class="tag-teal">✦ IT & CIS</span>
+      <span class="tag-gold">✦ Creator</span>
+    </div>
+    <p class="hero-tagline">Building worlds through Gacha storytelling, original series, creative design, and technical know-how — one universe at a time.</p>
+    <div class="hero-cta">
+      <a href="#youtube" class="btn btn-primary">Watch My Channels ▶</a>
+      <a href="#projects" class="btn btn-outline">See My Work</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-avatar-wrap">
+        <div>
+          <div class="about-avatar-ring">
+            <div class="about-avatar-inner">NC</div>
+          </div>
+          <div class="about-badges">
+            <span class="badge tag-coral">ASU Graduate</span>
+            <span class="badge tag-teal">Data Specialist</span>
+            <span class="badge tag-pink">GachaTuber</span>
+            <span class="badge tag-purple">Substitute Teacher</span>
+            <span class="badge tag-gold">Dean's Honor List</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Who I Am</span>
+        <h2 class="section-title">A Creative Mind with a Technical Heart</h2>
+        <div class="section-divider"></div>
+        <p>Hi! I'm Nabiha — a recent Computer Information Systems graduate from Arizona State University (W. P. Carey School of Business, Dean's Honor List 🎓) and a multifaceted creator with a passion for blending technology and imagination. I'm based in Chandler, AZ.</p>
+        <p>On the technical side, I have hands-on experience in data analysis, cybersecurity, AI tools, and full-stack development — including a real-world contract role as a Data Specialist at the City of Phoenix Fire Department. I've built AI-powered agents using Python and the OpenAI API, and I hold a Substitute Teacher Certificate for PreK–12.</p>
+        <p>On the creative side, I run five dedicated Gacha YouTube channels, write original TV and movie-like series, design digital art, and build entire fictional universes from scratch. I believe the best creators are the ones who also understand the technology behind the scenes — and I bring both to everything I do.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <span class="section-label">What I Bring</span>
+    <h2 class="section-title">Skills & Experience</h2>
+    <div class="section-divider"></div>
+    <!-- Education & Cert callout -->
+    <div style="display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2.5rem;">
+      <div style="flex:1;min-width:240px;background:var(--card-bg);border:1px solid var(--border);border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+        <div style="font-size:1.6rem;line-height:1;">🎓</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown-deep);font-size:1rem;">B.S. Computer Information Systems</div>
+          <div style="font-size:0.83rem;color:var(--brown-light);margin-top:0.2rem;">Arizona State University — W.P. Carey School of Business</div>
+          <div style="margin-top:0.4rem;display:flex;gap:0.5rem;flex-wrap:wrap;">
+            <span class="badge tag-gold">July 2025</span>
+            <span class="badge tag-teal">Dean's Honor List</span>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:240px;background:var(--card-bg);border:1px solid var(--border);border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+        <div style="font-size:1.6rem;line-height:1;">📜</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown-deep);font-size:1rem;">Substitute Teacher Certificate</div>
+          <div style="font-size:0.83rem;color:var(--brown-light);margin-top:0.2rem;">PreK–12 Grade Licensed</div>
+          <div style="margin-top:0.4rem;">
+            <span class="badge tag-coral">Certified</span>
+          </div>
+        </div>
+      </div>
+      <div style="flex:1;min-width:240px;background:var(--card-bg);border:1px solid var(--border);border-radius:1rem;padding:1.25rem 1.5rem;box-shadow:var(--shadow);display:flex;gap:1rem;align-items:flex-start;">
+        <div style="font-size:1.6rem;line-height:1;">🏛️</div>
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-weight:700;color:var(--brown-deep);font-size:1rem;">Data Specialist (Contract)</div>
+          <div style="font-size:0.83rem;color:var(--brown-light);margin-top:0.2rem;">City of Phoenix — Fire Department</div>
+          <div style="margin-top:0.4rem;">
+            <span class="badge tag-purple">Sept 2025 – Feb 2026</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(58,172,176,0.12);">💻</div>
+          <div class="skill-card-title">Programming & Development</div>
+        </div>
+        <ul class="skill-list">
+          <li><span class="skill-dot" style="background:var(--teal)"></span>Python</li>
+          <li><span class="skill-dot" style="background:var(--teal)"></span>Java</li>
+          <li><span class="skill-dot" style="background:var(--teal)"></span>SQL</li>
+          <li><span class="skill-dot" style="background:var(--teal)"></span>JavaScript</li>
+          <li><span class="skill-dot" style="background:var(--teal)"></span>HTML & CSS</li>
+          <li><span class="skill-dot" style="background:var(--teal)"></span>GitHub & Visual Studio Code</li>
+          <li><span class="skill-dot" style="background:var(--teal)"></span>VoltBuilder (Mobile App Dev)</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(232,168,37,0.12);">📊</div>
+          <div class="skill-card-title">Data & Analytics</div>
+        </div>
+        <ul class="skill-list">
+          <li><span class="skill-dot" style="background:var(--gold)"></span>Power BI — interactive dashboards</li>
+          <li><span class="skill-dot" style="background:var(--gold)"></span>Tableau — data visualizations</li>
+          <li><span class="skill-dot" style="background:var(--gold)"></span>SQL Server Management Studio</li>
+          <li><span class="skill-dot" style="background:var(--gold)"></span>Microsoft Excel — data analysis & formulas</li>
+          <li><span class="skill-dot" style="background:var(--gold)"></span>ETL processes</li>
+          <li><span class="skill-dot" style="background:var(--gold)"></span>Julius AI</li>
+          <li><span class="skill-dot" style="background:var(--gold)"></span>Jira — task & project tracking</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(123,94,167,0.12);">🤖</div>
+          <div class="skill-card-title">AI & Cybersecurity</div>
+        </div>
+        <ul class="skill-list">
+          <li><span class="skill-dot" style="background:var(--purple)"></span>OpenAI API & prompt engineering</li>
+          <li><span class="skill-dot" style="background:var(--purple)"></span>Hugging Face Spaces deployment</li>
+          <li><span class="skill-dot" style="background:var(--purple)"></span>ChatGPT & AI-powered workflows</li>
+          <li><span class="skill-dot" style="background:var(--purple)"></span>NLP & multi-agent AI systems</li>
+          <li><span class="skill-dot" style="background:var(--purple)"></span>Cyber risk management & mitigation</li>
+          <li><span class="skill-dot" style="background:var(--purple)"></span>Agile / Scrum (Scrum Master certified)</li>
+          <li><span class="skill-dot" style="background:var(--purple)"></span>ImageTrend data systems</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <div class="skill-card-header">
+          <div class="skill-icon" style="background:rgba(232,118,74,0.12);">🎨</div>
+          <div class="skill-card-title">Creative & Content</div>
+        </div>
+        <ul class="skill-list">
+          <li><span class="skill-dot" style="background:var(--coral)"></span>Digital art creation & graphic design</li>
+          <li><span class="skill-dot" style="background:var(--coral)"></span>Video editing & production</li>
+          <li><span class="skill-dot" style="background:var(--coral)"></span>Gacha storytelling, AUs & worldbuilding</li>
+          <li><span class="skill-dot" style="background:var(--coral)"></span>Original series writing & scriptwriting</li>
+          <li><span class="skill-dot" style="background:var(--coral)"></span>Multi-channel YouTube management (5 channels)</li>
+          <li><span class="skill-dot" style="background:var(--coral)"></span>Substitute teaching (PreK–12 licensed)</li>
+          <li><span class="skill-dot" style="background:var(--coral)"></span>Community leadership & event organizing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="container">
+    <span class="section-label">Original Works</span>
+    <h2 class="section-title">My OG Series & Projects</h2>
+    <div class="section-divider"></div>
+    <!-- Technical Projects Subsection -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--brown-deep);margin-bottom:0.4rem;">💡 Technical & Academic Projects</h3>
+    <p style="color:var(--brown-light);font-size:0.875rem;margin-bottom:1.5rem;">Built during professional experience and at Arizona State University</p>
+    <div class="projects-grid" style="margin-bottom:3rem;">
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(123,94,167,0.12);color:#5e4090;">AI Project</span>
+        <div class="project-name">AI Travel Planning Agent</div>
+        <div class="project-channel" style="color:var(--purple);">Python · OpenAI API · Hugging Face · NLP</div>
+        <div class="project-desc">Designed an AI-powered travel planning agent that generates personalized itineraries based on a user's city and hobbies. Deployed publicly on Hugging Face Spaces with advanced prompt engineering for optimal output quality.</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(123,94,167,0.12);color:#5e4090;">AI Project</span>
+        <div class="project-name">AI Multi-Agent Research Writing System</div>
+        <div class="project-channel" style="color:var(--purple);">Python · OpenAI API · Hugging Face · Memory</div>
+        <div class="project-desc">Designed a multi-agent AI system generating personalized step-by-step outputs based on user-defined goals. Implemented memory to store results, automate email delivery, and save outputs as text files. Deployed on Hugging Face Spaces.</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(58,172,176,0.12);color:#2A9298;">Capstone</span>
+        <div class="project-name">Information System / Scrum App</div>
+        <div class="project-channel" style="color:var(--teal);">VS Code · GitHub · Trello · MySQL · Agile</div>
+        <div class="project-desc">Led an Agile Scrum team as both Scrum Master and Developer, designing and building a full application from concept to deployment. Managed sprint planning, backlog, and cross-functional collaboration.</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">Academic</span>
+        <div class="project-name">Mobile Application Development</div>
+        <div class="project-channel" style="color:var(--coral);">JavaScript · VoltBuilder · CSS · HTML</div>
+        <div class="project-desc">Built a functional mobile application applying front-end development and UI/UX principles, with a focus on accessible and responsive design for real users.</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(232,168,37,0.12);color:#9E7010;">Academic</span>
+        <div class="project-name">Power BI & SQL Dashboard</div>
+        <div class="project-channel" style="color:var(--gold);">Power BI · SQL Server · CSV data integration</div>
+        <div class="project-desc">Created interactive dashboards in Power BI by importing CSV data into SQL Server, gaining hands-on experience with data integration, SQL queries, and business intelligence reporting.</div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(196,92,155,0.12);color:#B55A80;">Academic</span>
+        <div class="project-name">Cyber Risk Management Analysis</div>
+        <div class="project-channel" style="color:var(--pink);">Cybersecurity · Risk Assessment · Mitigation</div>
+        <div class="project-desc">Analyzed real-world cybersecurity risks and developed strategic mitigation plans, gaining practical insight into how security vulnerabilities affect organizations at an enterprise level.</div>
+      </div>
+
+    </div>
+
+    <!-- Creative Projects Subsection -->
+    <h3 style="font-family:'Playfair Display',serif;font-size:1.3rem;font-weight:700;color:var(--brown-deep);margin-bottom:0.4rem;">🎬 Original Gacha Series</h3>
+    <p style="color:var(--brown-light);font-size:0.875rem;margin-bottom:1.5rem;">8 original self-produced stories — completely separate from any fandom</p>
+    <div class="projects-grid">
+
+      <!-- TV-LIKE SERIES -->
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(168,124,200,0.14);color:#7040A0;">📺 TV-Like Series</span>
+        <div class="project-name">So Much More In Life</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.5rem;">✦ Cheryl Scott &amp; Jake Tiger</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Online Love</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Family Secrets</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Family Mysteries</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Toxic Family Drama</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(91,79,207,0.12);color:#4a3db0;">📺 TV-Like Series</span>
+        <div class="project-name">Krystalities</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.5rem;">✦ Valerie Ariella &amp; Zander Smith</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(91,79,207,0.1);color:#4a3db0;font-weight:600;">Superhero</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(91,79,207,0.1);color:#4a3db0;font-weight:600;">Action</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(91,79,207,0.1);color:#4a3db0;font-weight:600;">Betrayal</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(91,79,207,0.1);color:#4a3db0;font-weight:600;">Romance</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(91,79,207,0.1);color:#4a3db0;font-weight:600;">Drama</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(212,120,155,0.12);color:#B55A80;">📺 TV-Like Series</span>
+        <div class="project-name">Yanderes' Secrets</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.5rem;">✦ Blossom Secret &amp; Tyson Sharp</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Family Secrets</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Yandere Love</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Obsessive</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Romance</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Action</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Drama</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(74,180,192,0.12);color:#2A9298;">📺 TV-Like Series</span>
+        <div class="project-name">Celebrities' Secrets</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.5rem;">✦ Celena Crescent &amp; Ravi Burst</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(74,180,192,0.1);color:#2A9298;font-weight:600;">Obsessive</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(74,180,192,0.1);color:#2A9298;font-weight:600;">Family Secrets</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(74,180,192,0.1);color:#2A9298;font-weight:600;">Family Mysteries</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(74,180,192,0.1);color:#2A9298;font-weight:600;">Romance</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(74,180,192,0.1);color:#2A9298;font-weight:600;">Action</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(74,180,192,0.1);color:#2A9298;font-weight:600;">Drama</span>
+        </div>
+      </div>
+
+      <!-- MOVIE-LIKE SERIES -->
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(212,160,48,0.12);color:#9E7010;">🎬 Movie-Like Series</span>
+        <div class="project-name">Feybound Frienemies × XO Kitty</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.3rem;">✦ Galaxy Lavender &amp; Roland Graves</div>
+        <div style="font-size:0.75rem;color:var(--brown-light);margin-bottom:0.5rem;font-style:italic;">Crossover with 1 fandom: XO Kitty</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Secret Love</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Fake Rivals to Secret Lovers</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Yandere Love</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Obsessive</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Family Drama</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Family Secrets</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(212,160,48,0.12);color:#9E7010;">🎬 Movie-Like Series</span>
+        <div class="project-name">Forgotten Harmony</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.5rem;">✦ Karina Gomez &amp; Chandler Davis</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Yandere Love</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Obsessive</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Family Drama</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Family Secrets</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,160,48,0.1);color:#9E7010;font-weight:600;">Romance</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(168,124,200,0.14);color:#7040A0;">🎬 Movie-Like Series</span>
+        <div class="project-name">Hidden Mission</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.5rem;">✦ Karima Basher &amp; Kayziel Agreste</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Family Secrets</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Family Mysteries</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Romance</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Drama</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Action</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(168,124,200,0.1);color:#7040A0;font-weight:600;">Interfaith Relationships</span>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <span class="project-type-badge" style="background:rgba(212,120,155,0.12);color:#B55A80;">🎬 Movie-Like Series</span>
+        <div class="project-name">Starlight Reunion × Shasha &amp; Milo</div>
+        <div class="project-channel" style="color:var(--brown-light);font-size:0.82rem;margin-bottom:0.3rem;">✦ Neveah Aishi &amp; Hanzo Islam</div>
+        <div style="font-size:0.75rem;color:var(--brown-light);margin-bottom:0.5rem;font-style:italic;">Crossover with 1 fandom: Shasha &amp; Milo</div>
+        <div style="display:flex;flex-wrap:wrap;gap:0.3rem;margin-bottom:0.6rem;">
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Family Secrets</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Interfaith Relationships</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Superhero</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Action</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Betrayal</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Romance</span>
+          <span style="font-size:0.72rem;padding:0.2rem 0.55rem;border-radius:2rem;background:rgba(212,120,155,0.1);color:#B55A80;font-weight:600;">Drama</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- YOUTUBE -->
+<section id="youtube">
+  <div class="container">
+    <span class="section-label">On YouTube</span>
+    <h2 class="section-title">My 5 Gacha Channels</h2>
+    <div class="section-divider"></div>
+
+    <div class="channel-tabs" id="channelTabs">
+      <button class="channel-tab active" data-channel="fire" style="border-color:#A87CC8;color:#8A5AAE;" onclick="switchChannel('fire', this)">🔥 ShipperFireMist</button>
+      <button class="channel-tab" data-channel="galaxy" style="border-color:#5B4FCF;color:#4a3db0;" onclick="switchChannel('galaxy', this)">🌌 ShipperGalaxyHybrid</button>
+      <button class="channel-tab" data-channel="waves" style="border-color:#4AB4C0;color:#2A9298;" onclick="switchChannel('waves', this)">🌊 ShipperCelestialWaves</button>
+      <button class="channel-tab" data-channel="nova" style="border-color:#D4A030;color:#9E7010;" onclick="switchChannel('nova', this)">⭐ ShipperNovaSeaside</button>
+      <button class="channel-tab" data-channel="ember" style="border-color:#D4789B;color:#B55A80;" onclick="switchChannel('ember', this)">🔮 ShipperEmberNebula</button>
+    </div>
+
+    <div class="channel-panels">
+
+      <!-- FIRE MIST -->
+      <div class="channel-panel active" id="panel-fire">
+        <div class="channel-detail" style="border-top: 4px solid #A87CC8;">
+          <div class="channel-header">
+            <div class="channel-orb" style="background:rgba(232,118,74,0.15);">🔥</div>
+            <div class="channel-name-title">ShipperFireMist</div>
+            <div class="channel-desc">Nabiha's main channel — a family-friendly space full of heartfelt AUs, original storytelling, vlogs, and edits centered around beloved animated fandoms.</div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Featured Fandoms</h4>
+            <div class="fandom-tags">
+              <span class="fandom-tag" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">Miraculous Ladybug</span>
+              <span class="fandom-tag" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">Ghostforce</span>
+              <span class="fandom-tag" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">The Music Freak</span>
+              <span class="fandom-tag" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">Celebrity High</span>
+              <span class="fandom-tag" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">Hello Neighbor Animated</span>
+            </div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Original Series</h4>
+            <ul class="series-list">
+              <li>📺 <strong>So Much More In Life</strong> — OG TV-Like Series</li>
+            </ul>
+          </div>
+          <div class="channel-footer">
+            <span class="age-badge" style="background:rgba(58,172,176,0.12);color:#2A9298;">✅ Family-Friendly (age groups vary per video)</span>
+            <div class="content-types">
+              <span class="content-tag">Gacha AUs</span>
+              <span class="content-tag">Vlogs</span>
+              <span class="content-tag">Edits</span>
+              <span class="content-tag">Original Series</span>
+              <span class="content-tag">Challenge Videos</span>
+              <span class="content-tag">Meme/Trendy Videos</span>
+            </div>
+            <a href="https://www.youtube.com/@ShipperFireMist" target="_blank" class="btn btn-primary" style="background:#D4789B; margin-left:auto;">Visit Channel ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- GALAXY HYBRID -->
+      <div class="channel-panel" id="panel-galaxy">
+        <div class="channel-detail" style="border-top: 4px solid #5B4FCF;">
+          <div class="channel-header">
+            <div class="channel-orb" style="background:rgba(91,79,207,0.15);">🌌</div>
+            <div class="channel-name-title">ShipperGalaxyHybrid</div>
+            <div class="channel-desc">A teen and young adult focused channel exploring darker, more intense fandoms with psychological depth.</div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Featured Fandoms</h4>
+            <div class="fandom-tags">
+              <span class="fandom-tag" style="background:rgba(91,79,207,0.12);color:#4a3db0;">Five Nights at Freddy's</span>
+              <span class="fandom-tag" style="background:rgba(91,79,207,0.12);color:#4a3db0;">Mr. Hopp's Playhouse</span>
+              <span class="fandom-tag" style="background:rgba(91,79,207,0.12);color:#4a3db0;">Poppy Playtime</span>
+              <span class="fandom-tag" style="background:rgba(91,79,207,0.12);color:#4a3db0;">The Coffin of Andy & Leyley</span>
+              <span class="fandom-tag" style="background:rgba(91,79,207,0.12);color:#4a3db0;">Yandere Simulator</span>
+            </div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Original Series</h4>
+            <ul class="series-list">
+              <li>📺 <strong>Krystalities</strong> — OG TV-Like Series</li>
+              <li>📺 <strong>Yanderes' Secrets</strong> — OG TV-Like Series</li>
+            </ul>
+          </div>
+          <div class="channel-footer">
+            <span class="age-badge" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">🔞 Teens & Young Adults (not kid-friendly)</span>
+            <div class="content-types">
+              <span class="content-tag">Gacha AUs</span>
+              <span class="content-tag">Vlogs</span>
+              <span class="content-tag">Edits</span>
+              <span class="content-tag">Gameplay</span>
+              <span class="content-tag">Challenge Videos</span>
+              <span class="content-tag">Meme/Trendy Videos</span>
+            </div>
+            <a href="https://www.youtube.com/@ShipperGalaxyHybrid" target="_blank" class="btn btn-primary" style="background:#5B4FCF; margin-left:auto;">Visit Channel ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CELESTIAL WAVES -->
+      <div class="channel-panel" id="panel-waves">
+        <div class="channel-detail" style="border-top: 4px solid #4AB4C0;">
+          <div class="channel-header">
+            <div class="channel-orb" style="background:rgba(58,172,176,0.15);">🌊</div>
+            <div class="channel-name-title">ShipperCelestialWaves</div>
+            <div class="channel-desc">A 13+ channel blending the magical and the dramatic across beloved franchises.</div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Featured Fandoms</h4>
+            <div class="fandom-tags">
+              <span class="fandom-tag" style="background:rgba(58,172,176,0.12);color:#2A9298;">My Dear Hatchet Man</span>
+              <span class="fandom-tag" style="background:rgba(58,172,176,0.12);color:#2A9298;">Your Boyfriend/Girlfriend</span>
+              <span class="fandom-tag" style="background:rgba(58,172,176,0.12);color:#2A9298;">Percy Jackson TV Series</span>
+              <span class="fandom-tag" style="background:rgba(58,172,176,0.12);color:#2A9298;">Descendants × Ever After High</span>
+              <span class="fandom-tag" style="background:rgba(58,172,176,0.12);color:#2A9298;">Zombies × Vampirina Teenage Vampire</span>
+            </div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Original Series</h4>
+            <ul class="series-list">
+              <li>📺 <strong>Celebrities' Secrets</strong> — OG TV-Like Series</li>
+            </ul>
+          </div>
+          <div class="channel-footer">
+            <span class="age-badge" style="background:rgba(232,168,37,0.12);color:#9E7010;">⚠️ 13+ Audience (mixed family-friendly)</span>
+            <div class="content-types">
+              <span class="content-tag">Gacha AUs</span>
+              <span class="content-tag">Vlogs</span>
+              <span class="content-tag">Edits</span>
+              <span class="content-tag">Challenge Videos</span>
+              <span class="content-tag">Meme/Trendy Videos</span>
+            </div>
+            <a href="https://www.youtube.com/@ShipperCelestialWaves" target="_blank" class="btn btn-primary" style="background:#4AB4C0; margin-left:auto;">Visit Channel ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOVA SEASIDE -->
+      <div class="channel-panel" id="panel-nova">
+        <div class="channel-detail" style="border-top: 4px solid #D4A030;">
+          <div class="channel-header">
+            <div class="channel-orb" style="background:rgba(232,168,37,0.15);">⭐</div>
+            <div class="channel-name-title">ShipperNovaSeaside</div>
+            <div class="channel-desc">A teen and young adult channel where nostalgic fandoms meet original cinematic storytelling.</div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Featured Fandoms</h4>
+            <div class="fandom-tags">
+              <span class="fandom-tag" style="background:rgba(232,168,37,0.12);color:#9E7010;">Lolirock × Ready Jet Go</span>
+              <span class="fandom-tag" style="background:rgba(232,168,37,0.12);color:#9E7010;">MLP Equestria Girls</span>
+              <span class="fandom-tag" style="background:rgba(232,168,37,0.12);color:#9E7010;">Minecraft Story Mode</span>
+              <span class="fandom-tag" style="background:rgba(232,168,37,0.12);color:#9E7010;">A Memory's Recipe</span>
+            </div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Original Series</h4>
+            <ul class="series-list">
+              <li>🎬 <strong>Feybound Frienemies × XO Kitty</strong> — OG Movie-Like Series</li>
+              <li>🎬 <strong>Forgotten Harmony</strong> — OG Movie-Like Series</li>
+            </ul>
+          </div>
+          <div class="channel-footer">
+            <span class="age-badge" style="background:rgba(232,118,74,0.12);color:#8A5AAE;">🔞 Teens & Young Adults (not kid-friendly)</span>
+            <div class="content-types">
+              <span class="content-tag">Gacha AUs</span>
+              <span class="content-tag">Vlogs</span>
+              <span class="content-tag">Edits</span>
+              <span class="content-tag">Gameplay</span>
+              <span class="content-tag">Challenge Videos</span>
+              <span class="content-tag">Meme/Trendy Videos</span>
+            </div>
+            <a href="https://www.youtube.com/@ShipperNovaSeaside" target="_blank" class="btn btn-primary" style="background:#D4A030; margin-left:auto;">Visit Channel ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- EMBER NEBULA -->
+      <div class="channel-panel" id="panel-ember">
+        <div class="channel-detail" style="border-top: 4px solid #D4789B;">
+          <div class="channel-header">
+            <div class="channel-orb" style="background:rgba(196,92,155,0.15);">🔮</div>
+            <div class="channel-name-title">ShipperEmberNebula</div>
+            <div class="channel-desc">Nabiha's most mature channel — targeting a 17+ audience with bold storytelling and crossover content from unique fandoms.</div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Featured Fandoms</h4>
+            <div class="fandom-tags">
+              <span class="fandom-tag" style="background:rgba(196,92,155,0.12);color:#B55A80;">Super 4</span>
+              <span class="fandom-tag" style="background:rgba(196,92,155,0.12);color:#B55A80;">Kpop Demon Hunters</span>
+              <span class="fandom-tag" style="background:rgba(196,92,155,0.12);color:#B55A80;">Power Rangers Super Samurai</span>
+              <span class="fandom-tag" style="background:rgba(196,92,155,0.12);color:#B55A80;">Nutri Ventures</span>
+              <span class="fandom-tag" style="background:rgba(196,92,155,0.12);color:#B55A80;">Grojband</span>
+            </div>
+          </div>
+          <div class="channel-meta-block">
+            <h4>Original Series</h4>
+            <ul class="series-list">
+              <li>🎬 <strong>Hidden Mission</strong> — OG Movie-Like Series</li>
+              <li>🎬 <strong>Starlight Reunion × Shasha & Milo</strong> — OG Movie-Like Series</li>
+            </ul>
+          </div>
+          <div class="channel-footer">
+            <span class="age-badge" style="background:rgba(196,92,155,0.12);color:#B55A80;">🔞 17+ Audience (mixed, mature content)</span>
+            <div class="content-types">
+              <span class="content-tag">Gacha AUs</span>
+              <span class="content-tag">Edits</span>
+              <span class="content-tag">Challenge Videos</span>
+              <span class="content-tag">Meme/Trendy Videos</span>
+            </div>
+            <a href="https://www.youtube.com/@ShipperEmberNebula" target="_blank" class="btn btn-primary" style="background:#D4789B; margin-left:auto;">Visit Channel ↗</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <span class="section-label">Say Hello</span>
+    <h2 class="section-title">Get In Touch</h2>
+    <div class="section-divider"></div>
+    <div class="contact-grid">
+      <div class="contact-text">
+        <p>Whether you're a fellow creator, a fan, a potential collaborator, or an employer — I'd love to hear from you! Find me across any of these platforms.</p>
+        <p>I'm open to collaborations on Gacha projects, creative writing partnerships, IT and tech projects, and anything that lets me combine my creative and technical skills.</p>
+
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brown-light);margin:1.5rem 0 0.6rem;">YouTube</div>
+        <div class="contact-links" style="margin-top:0;">
+          <a href="https://www.youtube.com/@ShipperFireMist" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(212,120,155,0.12);">🔥</div>
+            @ShipperFireMist
+          </a>
+          <a href="https://www.youtube.com/@ShipperGalaxyHybrid" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(91,79,207,0.12);">🌌</div>
+            @ShipperGalaxyHybrid
+          </a>
+          <a href="https://www.youtube.com/@ShipperCelestialWaves" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(74,180,192,0.12);">🌊</div>
+            @ShipperCelestialWaves
+          </a>
+          <a href="https://www.youtube.com/@ShipperNovaSeaside" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(212,160,48,0.12);">⭐</div>
+            @ShipperNovaSeaside
+          </a>
+          <a href="https://www.youtube.com/@ShipperEmberNebula" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(168,124,200,0.12);">🔮</div>
+            @ShipperEmberNebula
+          </a>
+        </div>
+
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brown-light);margin:1.5rem 0 0.6rem;">TikTok</div>
+        <div class="contact-links" style="margin-top:0;">
+          <a href="https://www.tiktok.com/@shipper_firemist" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(168,124,200,0.12);">🎵</div>
+            @shipper_firemist
+          </a>
+          <a href="https://www.tiktok.com/@shipperember_waves" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(168,124,200,0.12);">🎵</div>
+            @shipperember_waves
+          </a>
+          <a href="https://www.tiktok.com/@multishipper_22" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(168,124,200,0.12);">🎵</div>
+            @multishipper_22
+          </a>
+          <a href="https://www.tiktok.com/@shipper_novagalaxy" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(168,124,200,0.12);">🎵</div>
+            @shipper_novagalaxy
+          </a>
+        </div>
+
+        <div style="font-size:0.75rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--brown-light);margin:1.5rem 0 0.6rem;">Other Platforms</div>
+        <div class="contact-links" style="margin-top:0;">
+          <a href="https://www.instagram.com/miraculous_shipper20" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(212,120,155,0.12);">📸</div>
+            @miraculous_shipper20 — Instagram
+          </a>
+          <a href="https://www.wattpad.com/user/shipperfiremist" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(212,160,48,0.12);">📖</div>
+            @shipperfiremist — Wattpad
+          </a>
+          <a href="https://www.tumblr.com/shipperuniverse24" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(74,180,192,0.12);">✏️</div>
+            @shipperuniverse24 — Tumblr
+          </a>
+          <a href="https://www.linkedin.com/in/nabiha-chowdhury-468128262/" target="_blank" class="contact-link">
+            <div class="contact-link-icon" style="background:rgba(91,79,207,0.12);">💼</div>
+            Nabiha Chowdhury — LinkedIn
+          </a>
+        </div>
+      </div>
+      <div class="contact-card">
+        <h3>Send a Message</h3>
+        <div class="form-group">
+          <label>Your Name</label>
+          <input type="text" placeholder="What should I call you?" />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="your@email.com" />
+        </div>
+        <div class="form-group">
+          <label>What's this about?</label>
+          <select>
+            <option value="">Choose a topic...</option>
+            <option>Gacha Collaboration</option>
+            <option>Creative Writing Partnership</option>
+            <option>IT / Tech Project</option>
+            <option>Fan Message</option>
+            <option>Business Inquiry</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message</label>
+          <textarea placeholder="Tell me what's on your mind!"></textarea>
+        </div>
+        <button class="form-submit" onclick="handleFormSubmit()">Send Message ✉️</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Nabiha<span>.</span></div>
+  <div class="footer-tagline">Creator · Storyteller · GachaTuber · IT Enthusiast</div>
+  <div class="footer-channels">
+    <a href="https://www.youtube.com/@ShipperFireMist" target="_blank" class="footer-channel-link">🔥 ShipperFireMist</a>
+    <a href="https://www.youtube.com/@ShipperGalaxyHybrid" target="_blank" class="footer-channel-link">🌌 ShipperGalaxyHybrid</a>
+    <a href="https://www.youtube.com/@ShipperCelestialWaves" target="_blank" class="footer-channel-link">🌊 ShipperCelestialWaves</a>
+    <a href="https://www.youtube.com/@ShipperNovaSeaside" target="_blank" class="footer-channel-link">⭐ ShipperNovaSeaside</a>
+    <a href="https://www.youtube.com/@ShipperEmberNebula" target="_blank" class="footer-channel-link">🔮 ShipperEmberNebula</a>
+  </div>
+  <div class="footer-copy">© 2025 Nabiha Chowdhury. Built with 💛 and lots of creative energy.</div>
+</footer>
+
+<script>
+  function switchChannel(id, btn) {
+    document.querySelectorAll('.channel-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.channel-tab').forEach(t => { t.style.background = 'transparent'; t.style.fontWeight = '700'; });
+    document.getElementById('panel-' + id).classList.add('active');
+    const colors = { fire: '#A87CC8', galaxy: '#5B4FCF', waves: '#4AB4C0', nova: '#D4A030', ember: '#D4789B' };
+    btn.style.background = colors[id] + '18';
+  }
+
+  // Set active tab on load
+  document.querySelector('[data-channel="fire"]').style.background = '#A87CC818';
+
+  function handleFormSubmit() {
+    alert('Thanks for your message! This is a portfolio demo — to reach Nabiha, please visit one of her YouTube channels. 💛');
+  }
+</script>
+
+</body>
+</html>
